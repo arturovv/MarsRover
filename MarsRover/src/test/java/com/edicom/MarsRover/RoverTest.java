@@ -61,9 +61,7 @@ public class RoverTest {
 	public void testForward(Rover rover, int expectedPosX, int expectedPosY) {
 		
 		Rover newRover = Game.goForward(rover);
-		
-		//int [] expected = { expectedPosX, expectedPosY };
-		
+				
 		Assert.assertEquals(expectedPosX, newRover.getX());
 		Assert.assertEquals(expectedPosY, newRover.getY());
 		
@@ -74,9 +72,7 @@ public class RoverTest {
 	public void testBackward(Rover rover, int expectedPosX, int expectedPosY) {
 		
 		Rover newRover = Game.goBackward(rover);
-		
-		//int [] expected = { expectedPosX, expectedPosY };
-		
+				
 		Assert.assertEquals(expectedPosX, newRover.getX());
 		Assert.assertEquals(expectedPosY, newRover.getY());
 		
