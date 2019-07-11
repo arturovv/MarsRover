@@ -42,16 +42,6 @@ public class Rover {
 	public void setDirection(char direction) {
 		this.direction = direction;
 	}
-	
-	public int[] getPos() {
-		
-		int [] returnInt = { this.getX(), this.getY() };
-		
-		return returnInt;
-		
-	}
-	
-	
-	
+
 
 }

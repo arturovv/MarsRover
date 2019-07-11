@@ -34,6 +34,28 @@ public class RoverTest {
 		};
 	}
 	
+	@DataProvider
+	public static Object[][] dataRoverProviderForRight() {
+
+		return new Object[][] { 
+			{ new Rover(1, 0, 'N'), 'E'}, 
+			{ new Rover(1, 2, 'E'), 'S' }, 
+			{ new Rover(2, 0, 'S'), 'W' }, 
+			{ new Rover(2, 2, 'W'), 'N' } 
+		};
+	}
+	
+	@DataProvider
+	public static Object[][] dataRoverProviderForLeft() {
+
+		return new Object[][] { 
+			{ new Rover(1, 0, 'N'), 'W' }, 
+			{ new Rover(1, 2, 'E'), 'N' }, 
+			{ new Rover(2, 0, 'S'), 'E' }, 
+			{ new Rover(2, 2, 'W'), 'S' } 
+		};
+	}
+	
 	@Test
 	@UseDataProvider("dataRoverProviderForForward")
 	public void testForward(Rover rover, int expectedPosX, int expectedPosY) {
@@ -59,4 +81,25 @@ public class RoverTest {
 		Assert.assertEquals(expectedPosY, newRover.getY());
 		
 	}
+	
+	@Test
+	@UseDataProvider("dataRoverProviderForRight")
+	public void testRight(Rover rover, char expected) {
+		
+		Rover newRover = Game.turnRight(rover);
+	
+		Assert.assertEquals(expected, newRover.getDirection());
+		
+	}
+	
+	@Test
+	@UseDataProvider("dataRoverProviderForLeft")
+	public void testLeft(Rover rover, char expected) {
+		
+		Rover newRover = Game.turnLeft(rover);
+	
+		Assert.assertEquals(expected, newRover.getDirection());
+		
+	}
+	
 }

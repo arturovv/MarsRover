@@ -31,5 +31,33 @@ public class Game {
 
 	}
 	
+	public static Rover turnRight(Rover rover) {
+		
+		switch(rover.getDirection()) {
+			case 'N' : rover.setDirection('E'); break;
+			case 'E' : rover.setDirection('S'); break;
+			case 'S' : rover.setDirection('W'); break;
+			case 'W' : rover.setDirection('N'); break;
+			default : ;
+		}
+		
+		return rover;
+
+	}
+	
+public static Rover turnLeft(Rover rover) {
+		
+		switch(rover.getDirection()) {
+			case 'N' : rover.setDirection('W'); break;
+			case 'E' : rover.setDirection('N'); break;
+			case 'S' : rover.setDirection('E'); break;
+			case 'W' : rover.setDirection('S'); break;
+			default : ;
+		}
+		
+		return rover;
+
+	}
+	
 
 }
