@@ -15,9 +15,10 @@ public class RoverTest {
 	public static Object[][] dataRoverProviderForForward() {
 
 		return new Object[][] { 
-			{ new Rover(0, 0, "W"), 0, 0 }, 
-			{ new Rover(1, 2, "E"), 1, 3 }, 
-			{ new Rover(2, 0, "S"), 3, 0 } 
+			{ new Rover(1, 0, 'N'), 0, 0 }, 
+			{ new Rover(1, 2, 'E'), 1, 3 }, 
+			{ new Rover(2, 0, 'S'), 3, 0 }, 
+			{ new Rover(2, 2, 'W'), 2, 1 } 
 		};
 	}
 	
@@ -25,9 +26,12 @@ public class RoverTest {
 	@UseDataProvider("dataRoverProviderForForward")
 	public void testForward(Rover rover, int expectedPosX, int expectedPosY) {
 		
-		rover.goForward();
-		int [] expected = { expectedPosX, expectedPosY };
-		Assert.assertEquals(expected, rover.getPos());
+		Rover newRover = Game.goForward(rover);
+		
+		//int [] expected = { expectedPosX, expectedPosY };
+		
+		Assert.assertEquals(expectedPosX, newRover.getX());
+		Assert.assertEquals(expectedPosY, newRover.getY());
 		
 	}
 }
